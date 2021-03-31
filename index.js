@@ -66,6 +66,17 @@ client.connect(err => {
     })
   })
   //my order history ends here
+
+  //Single Product Delete starts here
+  app.delete('/deletesingleproduct/:pdId',(req,res)=>{
+    const productId=req.params.pdId;
+    console.log(productId);
+    productCollection.deleteOne({_id:ObjectId(productId)})
+    .then(result=>{
+      res.send(result.deletedCount>0);
+    })
+  })
+  //Single Product Delete ends here
   
 });
 app.get('/', (req, res) => {
