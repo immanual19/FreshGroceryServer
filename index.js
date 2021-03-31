@@ -2,12 +2,13 @@ const express = require('express')
 const app = express()
 const bodyParser=require('body-parser');
 const cors=require('cors');
+require('dotenv').config();
 const port = process.env.PORT || 8080
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('bson');
-const uri = "mongodb+srv://freshGroceryAdmin:x4nd3r1sm3@cluster0.q17pz.mongodb.net/freshGroceryDB?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q17pz.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-require('dotenv').config();
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -85,5 +86,5 @@ app.get('/', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`FreshGrocery listening at http://localhost:${port}`)
 })
