@@ -8,12 +8,12 @@
 2. Deleting a single product from the database.
 3. Showing all the product from database.
 4. Getting information of a single Product.
-5. Adding Order Summary to database.
-6. Fetching Order Info from database.
+5. Adding Order Info to database.
+6. Fetching Order History from database (for logged in user).
 
 # Development Summary
 
-1. I have used Node, Mongdb and Express here.
+1. I have used Node, MongoDB and Express here.
 
 # Live site link
 
